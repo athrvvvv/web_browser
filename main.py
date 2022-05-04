@@ -1,5 +1,6 @@
 import sys
 from PyQt5.QtCore import QUrl
+import PyQt5.QtCore as QtCore
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import (QApplication, QLineEdit, QMainWindow, 
     QPushButton, QToolBar)
@@ -44,9 +45,8 @@ class Example(QMainWindow):
 
         self.webEngineView.page().titleChanged.connect(self.setWindowTitle)
         self.webEngineView.page().urlChanged.connect(self.urlChanged)
-
-        self.setGeometry(300, 300, 500, 400)
-        self.setWindowTitle('QWebEnginePage')
+        self.setWindowState(QtCore.Qt.WindowMaximized)
+        self.setWindowTitle('Web-Browser')
         self.show()
 
     def onLoadFinished(self):
@@ -79,8 +79,7 @@ class Example(QMainWindow):
         self.address.setText(url.toString())
 
 
-def main():
-
+def main(): 
     app = QApplication(sys.argv)
     ex = Example()
     sys.exit(app.exec_())
