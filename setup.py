@@ -1,6 +1,8 @@
+import sys
 from cx_Freeze import setup, Executable
-  
-setup(name = "WEB-BROWSER" ,
-      version = "1.0.0" ,
-      description = "WEB-BROWSER-BRO" ,
-      executables = [Executable("main.py")])
+
+setup(
+    name = "Web-Browser",
+    version = "1.0.0",
+    description = "Web-Browser :)",
+    executables = [Executable("main.py", base = "Win32GUI", icon="icon.ico")])
